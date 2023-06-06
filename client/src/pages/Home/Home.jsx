@@ -14,7 +14,7 @@ const Home = () => {
     }, [dispatch]);
   
     return (
-        <div>
+        <div className='home__container'>
         {loading ? (
           <p>Loading users...</p>
         ) : users ? (

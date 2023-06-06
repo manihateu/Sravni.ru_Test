@@ -1,0 +1,19 @@
+.img__block {
+    position: relative;
+    display: inline-block;
+    justify-self: center;
+    img{
+        height: 160px;
+        width: 250px;
+    }
+    span{
+        background: #222;
+        color: #fff;
+        border-radius: 2px;
+        position: absolute;
+        right: 0;
+        bottom: 10px;
+        font-size: 18px;
+        padding: 3px 5px;
+    }
+}

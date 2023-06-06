@@ -21,3 +21,17 @@
         grid-template-columns: repeat(1, 1fr);
     }
 }
+
+.pagination{
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    margin-top: 2rem;
+}
+
+.pagination__button{
+    border: 0;
+    border-radius: .5rem;
+    padding: 1rem;
+    background-color: aqua;
+}

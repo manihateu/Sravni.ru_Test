@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { fetchPhotos } from '../../action/photosActions';
 import { useSelector, useDispatch } from 'react-redux';
 import './UserPage.scss';
+import PhotoCard from '../../components/photoCard/PhotoCard';
 
 const UserPage = () => {
   const dispatch = useDispatch();
@@ -38,18 +39,15 @@ const UserPage = () => {
       ) : (
         <div className="photo__container">
           {currentPhotos.map((photo) => (
-            <div key={photo.id}>
-              <img src={photo.thumbnailUrl} alt={photo.title} />
-              <p>{photo.id}</p>
-            </div>
+            <PhotoCard key={photo.id} id={photo.id} img={photo.thumbnailUrl}/>
           ))}
         </div>
       )}
       <div className="pagination">
-        <button onClick={handleClickPrev} disabled={currentPage === 1}>
+        <button onClick={handleClickPrev} disabled={currentPage === 1} className='pagination__button'>
           Назад
         </button>
-        <button onClick={handleClickNext}>
+        <button onClick={handleClickNext} className='pagination__button'>
           Вперед
         </button>
       </div>

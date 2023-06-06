@@ -1,9 +1,13 @@
 import React from 'react'
+import './PhotoCard.scss'
 
-const photoCard = () => {
+const PhotoCard = (props) => {
   return (
-    <div>photoCard</div>
+    <div className='img__block'>
+        <img src={props.img} title={props.id}/>
+        <span>{props.id}</span>
+    </div>
   )
 }
 
-export default photoCard
+export default PhotoCard

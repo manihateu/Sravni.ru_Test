@@ -19,12 +19,12 @@ export const fetchPhotosFailure = () => {
   };
 };
 
-export const fetchPhotos = () => {
+export const fetchPhotos = (albumId) => {
   return (dispatch) => {
     dispatch(fetchPhotosRequest());
 
     axios
-      .get('https://jsonplaceholder.typicode.com/photos')
+      .get(`https://jsonplaceholder.typicode.com/photos?albumId=${albumId}`)
       .then((response) => {
         const photos = response.data;
         dispatch(fetchPhotosSuccess(photos));

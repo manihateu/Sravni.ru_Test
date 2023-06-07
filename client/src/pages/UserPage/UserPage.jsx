@@ -3,6 +3,7 @@ import { fetchPhotos } from '../../action/photosActions';
 import { useSelector, useDispatch } from 'react-redux';
 import './UserPage.scss';
 import PhotoCard from '../../components/photoCard/PhotoCard';
+import { useParams } from 'react-router-dom'
 
 const UserPage = () => {
   const dispatch = useDispatch();
@@ -10,10 +11,10 @@ const UserPage = () => {
   const isLoading = useSelector((state) => state.photos.isLoading);
   const [currentPage, setCurrentPage] = useState(1);
   const photosPerPage = 10;
-
+  const { userid } = useParams()
   useEffect(() => {
-    dispatch(fetchPhotos());
-  }, [dispatch]);
+    dispatch(fetchPhotos(userid));
+  }, [dispatch, userid]);
 
   const handleClickPrev = () => {
     if (currentPage > 1) {
@@ -47,7 +48,7 @@ const UserPage = () => {
         <button onClick={handleClickPrev} disabled={currentPage === 1} className='pagination__button'>
           Назад
         </button>
-        <button onClick={handleClickNext} className='pagination__button'>
+        <button onClick={handleClickNext} disabled={currentPage === 5} className='pagination__button'>
           Вперед
         </button>
       </div>
